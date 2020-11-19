@@ -22,7 +22,7 @@
         <tbody v-else-if="clases.length == 0">
           <tr>
             <td colspan="5">
-              <div class="alert alert-danger">No hay reservas cargadas</div>
+              <div class="alert alert-danger">No hay clases cargadas</div>
             </td>
           </tr>
         </tbody>
