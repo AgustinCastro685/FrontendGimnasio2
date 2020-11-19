@@ -16,7 +16,12 @@
                             <td>{{clase.codClase}}</td>
                             <td>{{clase.nombre_Clase}}</td>
                             <td>{{clase.dia}}</td>
-                            <td>{{clase.hora}}</td><button class="btn btn-success m-3" @click="agregarClase = !agregarClase">Anotarse!</button>  
+                            <td>{{clase.hora}}</td>
+                            <router-link to="/confirmacion-turno">
+                            <button 
+                            class="btn btn-success m-3">Anotarse!
+                            </button> 
+                            </router-link>
           </tr>
         </tbody>
         <tbody v-else-if="clases.length == 0">

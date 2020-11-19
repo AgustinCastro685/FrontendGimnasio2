@@ -10,7 +10,7 @@ import Login from '../components/Login.vue'
 import LoginAdmin from '../components/LoginAdmin.vue'
 import Registro from '../components/Registro.vue'
 import RegistroExitoso from '../components/RegistroExitoso.vue'
-
+import MensajeExitoso from '../components/MensajeExitoso.vue'
 
 const routes = [
     {path : '/home',name: 'Home',component: Home},
@@ -22,6 +22,7 @@ const routes = [
     {path : '/clases',name: 'Clases',component: Clases},
     {path : '/usuarios',name: 'Usuarios',component: Usuarios},
     {path : '/turnos',name: 'Turnos',component: Turnos},
+    {path : '/confirmacion-turno',name: 'ConfirmacionTurno',component: MensajeExitoso},
     {path : '/:catchAll(.*)',name: 'NoFound',component: Error}
 ]   
 
