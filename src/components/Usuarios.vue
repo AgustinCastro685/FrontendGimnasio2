@@ -134,6 +134,100 @@
                      <button class="btn btn-warning m-3" @click="cambiarUsuario = !cambiarUsuario">
                       {{ cambiarUsuario ? "No Cambiar" : "Cambiar" }}
                     </button>
+                    <div v-if="cambiarUsuario" class="alert alert-warning">
+                      <form novalidate autocomplete="off" @submit.prevent="enviar()">
+      
+                                  <div class="form-group">
+                                    <label for="dni">DNI</label>
+                                    <input 
+                                      type="number" 
+                                      id="dni" 
+                                      class="form-control"
+                                      v-model.number="$v.f.dni.$model"
+                                      >
+                                      <div v-if="$v.f.dni.$error && $v.f.dni.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.dni.required.$invalid">Campo requerido</div>
+                                      </div>
+                                  </div>
+
+
+                                  <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input 
+                                      type="text" 
+                                      id="email" 
+                                      class="form-control"
+                                      v-model="$v.f.email.$model"
+                                      >
+                                      <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.email.email.$invalid">- Debe ser un email válido</div>
+                                        
+                                          
+                                          
+                                      </div>
+                                  </div>
+
+                                  
+                                  <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input 
+                                      type="text" 
+                                      id="nombre" 
+                                      class="form-control"
+                                      v-model="$v.f.nombre.$model"
+                                      >
+                                      <div v-if="$v.f.nombre.$error && $v.f.nombre.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.nombre.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="$v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
+                                      </div>
+                                  </div>
+
+
+                                <div class="form-group">
+                                    <label for="apellido">Apellido</label>
+                                    <input 
+                                      type="text" 
+                                      id="apellido" 
+                                      class="form-control"
+                                      v-model="$v.f.apellido.$model"
+                                      >
+                                      <div v-if="$v.f.apellido.$error && $v.f.apellido.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.apellido.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="$v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                        
+                                      </div>
+                                    
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="apellido">Password</label>
+                                    <input 
+                                      type="password" 
+                                      id="password" 
+                                      class="form-control"
+                                      v-model="$v.f.password.$model"
+                                      >
+                                      <div v-if="$v.f.password.$error && $v.f.password.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.password.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="$v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                        
+                                      </div>
+                                    
+                                  </div>
+
+
+                                  <div class="form-group">
+                                    <input 
+                                      type="submit"
+                                      :disabled="$v.$invalid"
+                                      class="btn btn-success mt-4"
+                                      value="Cargar"
+                                    >
+                                    
+                                  </div>
+
+                                </form>
+  </div>
                     
                     <!-- Boton   Borrar-->
                     <button class="btn btn-danger m-3" @click="eliminarUsuario = !eliminarUsuario">
