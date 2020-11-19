@@ -60,6 +60,7 @@
       return {
         f: this.resetForm(),
         url: 'http://localhost:3000/api/usuarios/login',
+        error:false
       }
     },
     validations: {
