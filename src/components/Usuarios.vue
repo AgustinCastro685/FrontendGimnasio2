@@ -37,30 +37,30 @@
                       <form novalidate autocomplete="off" @submit.prevent="enviar()">
       
                                   <div class="form-group">
-                                    <label for="id">ID</label>
+                                    <label for="dni">DNI</label>
                                     <input 
                                       type="number" 
-                                      id="id" 
+                                      id="dni" 
                                       class="form-control"
-                                      v-model.number="$v.f._id.$model"
+                                      v-model.number="$v.f.dni.$model"
                                       >
-                                      <div v-if="$v.f._id.$error && $v.f._id.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f._id.required.$invalid">Campo requerido</div>
+                                      <div v-if="$v.f.dni.$error && $v.f.dni.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.dni.required.$invalid">Campo requerido</div>
                                       </div>
                                   </div>
 
 
                                   <div class="form-group">
-                                    <label for="dni">DNI</label>
+                                    <label for="email">Email</label>
                                     <input 
                                       type="text" 
-                                      id="dni" 
+                                      id="email" 
                                       class="form-control"
-                                      v-model="$v.f.dni.$model"
+                                      v-model="$v.f.email.$model"
                                       >
-                                      <div v-if="$v.f.dni.$error && $v.f.dni.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.dni.required.$invalid">dni no valido</div>
-                                        <div v-else-if="$v.f.dni.minLength.$invalid">El dni debe tener al menos 8 caracteres</div>
+                                      <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.email.required.$invalid">dni no valido</div>
+                                        <div v-else-if="$v.f.email.minLength.$invalid">El dni debe tener al menos 8 caracteres</div>
                                           
                                           
                                       </div>
@@ -134,7 +134,7 @@
 
 <script>
   import NavbarAdmin from './NavbarAdmin.vue'
-  import {required ,minLength} from '@vuelidate/validators'
+  import {required ,minLength, maxLength,email} from '@vuelidate/validators'
   export default  {
     name: 'src-components-usuarios',
     props: [],
@@ -157,12 +157,14 @@
     },
     validations : {
       f: {
-        _id:{
-          required,
-        },
         dni:{
           required,
-          minLength: minLength(8)
+          minLength: minLength(8),
+          maxLength: maxLength(8)
+        },
+        email:{
+          email,
+          required
        },
         nombre:{
           required, 
