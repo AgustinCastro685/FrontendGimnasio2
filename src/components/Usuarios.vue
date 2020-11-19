@@ -4,16 +4,16 @@
         <table class="table table-striped">
        <thead>
         <tr class="bg-dark text-white">
-            <td>ID</td>
             <td>DNI</td>
+            <td>Email</td>
             <td>Nombre</td>
             <td>Apellido</td>
           </tr>
         </thead>
         <tbody v-if="usuarios.length > 0">
           <tr class="bg-info text-white" v-for="(usuario,index) in usuarios" :key="index">
-              <td>{{usuario._id}}</td>
               <td>{{usuario.dni}}</td>
+              <td>{{usuario.password}}</td>
               <td>{{usuario.nombre}}</td>
               <td>{{usuario.apellido}}</td>
                             
