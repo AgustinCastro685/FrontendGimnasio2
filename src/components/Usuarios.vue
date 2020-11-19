@@ -13,7 +13,7 @@
         <tbody v-if="usuarios.length > 0">
           <tr class="bg-info text-white" v-for="(usuario,index) in usuarios" :key="index">
               <td>{{usuario.dni}}</td>
-              <td>{{usuario.password}}</td>
+              <td>{{usuario.email}}</td>
               <td>{{usuario.nombre}}</td>
               <td>{{usuario.apellido}}</td>
                             
