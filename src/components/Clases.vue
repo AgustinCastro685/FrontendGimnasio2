@@ -120,7 +120,7 @@
                       {{ cambiarClase ? "No Cambiar" : "Cambiar" }}
                     </button>
 
-                    <div v-if="agregarClase" class="alert alert-warning">
+                    <div v-if="cambiarClase" class="alert alert-warning">
                       <form novalidate autocomplete="off" @submit.prevent="enviar()">
       
                                   <div class="form-group">

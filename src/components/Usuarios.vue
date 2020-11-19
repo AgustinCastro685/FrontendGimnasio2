@@ -59,8 +59,8 @@
                                       v-model="$v.f.email.$model"
                                       >
                                       <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.email.required.$invalid">dni no valido</div>
-                                        <div v-else-if="$v.f.email.minLength.$invalid">El dni debe tener al menos 8 caracteres</div>
+                                        <div v-if="$v.f.email.email.$invalid">- Debe ser un email válido</div>
+                                        
                                           
                                           
                                       </div>
@@ -93,6 +93,22 @@
                                       <div v-if="$v.f.apellido.$error && $v.f.apellido.$dirty" class="alert alert-danger mt-1">
                                         <div v-if="$v.f.apellido.required.$invalid">Este campo es requerido</div>
                                         <div v-else-if="$v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                        
+                                      </div>
+                                    
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="apellido">Password</label>
+                                    <input 
+                                      type="password" 
+                                      id="password" 
+                                      class="form-control"
+                                      v-model="$v.f.password.$model"
+                                      >
+                                      <div v-if="$v.f.password.$error && $v.f.password.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.password.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="$v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -174,6 +190,10 @@
           required,
           minLength: minLength(2)
         },
+         password:{
+          required,
+          minLength: minLength(2)
+        }
       },
     }, 
     methods: {
@@ -184,6 +204,15 @@
             this.usuarios = resp.data
             })
           .catch(error => console.log('HTTP GET ERROR',error))
+      },
+      sendDatosFormAxios(data) {
+      this.axios
+        .post(this.url, data, { "content-type": "application/json" })
+        .then(resp => console.log(resp.data))
+        .catch((error) => {
+          console.log(error);
+          this.error = true;
+        })
       },
       deleteUsuarioAxios(dni) {
         console.log('delete',dni)
@@ -197,11 +226,8 @@
           })
           .catch(error => console.log('HTTP DELETE ERROR', error))
       },
-      sendDatosFormAxios(datos){
-        this.axios.post(this.url,datos,{'content-type':'application/json'})
-        .then(resp => console.log(resp.data))
-        .catch(error => console.log('HTTP POST ERROR' , error))
-      },
+      
+      
      
       enviar(){
         this.$v.$touch()
@@ -220,7 +246,8 @@
           dni:'',
           email:'',
           nombre:'',
-          apellido:''
+          apellido:'',
+          password:''
         }
       },
     },
