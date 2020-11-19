@@ -124,8 +124,8 @@
                       {{ eliminarUsuario ? "No Eliminar" : "Eliminar" }}
                     </button>
                     <div v-if="eliminarUsuario" class="alert alert-warning">
-                    <input type="number" v-model="id" />
-                    <button class="btn btn-danger m-3" @click="deleteUsuarioAxios(id)">Eliminar</button>
+                    <input type="number" v-model="dni" />
+                    <button class="btn btn-danger m-3" @click="deleteUsuarioAxios(dni)">Eliminar</button>
                     </div>
                 </div>
 
@@ -185,13 +185,13 @@
             })
           .catch(error => console.log('HTTP GET ERROR',error))
       },
-      deleteUsuarioAxios(id) {
-        console.log('delete',id)
-        this.axios.delete(this.url+id)
+      deleteUsuarioAxios(dni) {
+        console.log('delete',dni)
+        this.axios.delete(this.url+dni)
           .then(res => {
             let usuario = res.data
             console.log(usuario)
-            let offset = this.usuarios.findIndex(usuario => usuario._id == id)
+            let offset = this.usuarios.findIndex(usuario => usuario.dni == dni)
             this.usuarios.splice(offset,1)
             this.getDatosFormAxios()
           })
@@ -217,8 +217,8 @@
       },
       resetForm(){
         return{
-          _id:'',
-           dni:'',
+          dni:'',
+          email:'',
           nombre:'',
           apellido:''
         }

@@ -119,6 +119,84 @@
                      <button class="btn btn-warning m-3" @click="cambiarClase = !cambiarClase">
                       {{ cambiarClase ? "No Cambiar" : "Cambiar" }}
                     </button>
+
+                    <div v-if="agregarClase" class="alert alert-warning">
+                      <form novalidate autocomplete="off" @submit.prevent="enviar()">
+      
+                                  <div class="form-group">
+                                    <label for="codClase">Codigo Clase</label>
+                                    <input 
+                                      type="number" 
+                                      id="codClase" 
+                                      class="form-control"
+                                      v-model.number="$v.f.codClase.$model"
+                                      >
+                                      <div v-if="$v.f.codClase.$error && $v.f.codClase.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.codClase.required.$invalid">Campo requerido</div>
+                                      </div>
+                                  </div>
+
+
+                                  <div class="form-group">
+                                    <label for="nombre_Clase">Nombre Clase</label>
+                                    <input 
+                                      type="text" 
+                                      id="nombre_Clase" 
+                                      class="form-control"
+                                      v-model="$v.f.nombre_Clase.$model"
+                                      >
+                                      <div v-if="$v.f.nombre_Clase.$error && $v.f.nombre_Clase.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.nombre_Clase.required.$invalid">Nombre no valido</div>
+                                        <div v-else-if="$v.f.nombre_Clase.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                          
+                                          
+                                      </div>
+                                  </div>
+
+                                  
+                                  <div class="form-group">
+                                    <label for="dia">Dia</label>
+                                    <input 
+                                      type="text" 
+                                      id="dia" 
+                                      class="form-control"
+                                      v-model="$v.f.dia.$model"
+                                      >
+                                      <div v-if="$v.f.dia.$error && $v.f.dia.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.dia.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="$v.f.dia.minLength.$invalid">El dia debe tener al menos 3 caracteres</div>
+                                      </div>
+                                  </div>
+
+
+                                <div class="form-group">
+                                    <label for="horario">Horario</label>
+                                    <input 
+                                      type="text" 
+                                      id="horario" 
+                                      class="form-control"
+                                      v-model="$v.f.hora.$model"
+                                      >
+                                      <div v-if="$v.f.hora.$error && $v.f.hora.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="$v.f.hora.required.$invalid">Este campo es requerido</div>
+                                        
+                                      </div>
+                                    
+                                  </div>
+
+
+                                  <div class="form-group">
+                                    <input 
+                                      type="submit"
+                                      :disabled="$v.$invalid"
+                                      class="btn btn-success mt-4"
+                                      value="Cargar"
+                                    >
+                                    
+                                  </div>
+
+                                </form>
+                          </div>
                     
                     <!-- Boton   Borrar-->
                     <button class="btn btn-danger m-3" @click="eliminarClase = !eliminarClase">
