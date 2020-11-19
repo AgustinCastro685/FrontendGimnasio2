@@ -178,7 +178,6 @@
     }, 
     methods: {
       getDatosFormAxios(){
-          //let url = 'https://5f90c7dfe0559c0016ad6d78.mockapi.io/endpoint/usuarios'
           this.axios(this.url)
           .then(resp => {
             console.log(resp.data)

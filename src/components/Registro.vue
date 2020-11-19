@@ -8,14 +8,13 @@
       href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <!-- siempre tu .css al final de ya que se pisan de arriba para abajo-->
+    
   </head>
 
   <body>
     <main class="contenedor seccion contenido-centrado">
-      <h2 class="fw-300 centrar-texto">Llenar formulario de contacto</h2>
+      <h1 class="fw-300 centrar-texto">Llenar formulario de contacto</h1>
+      <hr/>
       <form novalidate autocomplete="off" @submit.prevent="send()">
 
         <fieldset>
@@ -130,7 +129,7 @@
           </div>
         </div>
 
-        <div class="form-group col-12">
+        <div class="form-group">
           <label for="passwordConfirm">Confirmar contraseña</label>
           <input
             type="password"
@@ -163,8 +162,8 @@
           <input
             type="submit"
             :disabled="$v.$invalid"
-            class="btn btn-success mt-4"
-            value="Cargar"
+            class= "btn btn-success btn-lg btn-block mt-4"
+            value="Registrase"
           />
         </div>
       </form>
@@ -318,36 +317,7 @@ font-size: 2.6rem;
     max-width:800px ;
 }
 
-/** Botones **/
-.boton{
- color: white;
- font-weight: 700;
- text-decoration: none;
- font-size: 1.8rem;
- padding: 1rem 3rem; /**le agrega hacia adentro (mas ancho) **/
- margin-top: 3rem;
- display: inline-block; /** solo para enlaces, otros son solo block **/
- text-align: center;
- display: block;
- flex: 0 0 100%;
- border: none;
-}
-@media (min-width: 768px) {
-    .boton {
-        display: inline-block;
-        flex: 0 0 auto;
-    }
-}
- .boton:hover {
-     cursor:pointer;
- }
- 
-.boton-amarillo{
-background-color: #e08709;
-}
-.boton-verde{
-background-color: #71b100;
-}
+
 /*Header*/
 .site-header{
     background-color: #333333;
@@ -434,82 +404,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
         display: block;
     }
 }
-/** Iconos (Nosotros) **/
-@media (min-width: 768px) {
-    .iconos-nosotros {
-    display: flex;
-    justify-content: space-between;
-}
-}
-.icono{ 
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .icono{
-    flex-basis: calc(33.3% - 1rem);  /** funcion que realiza calculos operaciones matematicas**/  
-}
-}
-.icono h3 {
-text-transform: uppercase;
-}
-
-/**Anuncios**/
-@media (min-width: 768px) {
-.contenedor-anuncios{
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap; /** clase padre  de anuncios,  pone los anuncios en forma vertical **/
-}
-}
-.anuncio{
-    /** se unifica los atributos como puede ser border --> flex: 0 0 calc (33% - 1rem); 
-    flex-grow: 0;
-    flex-shrink: 0; /**permite que no se encojan los anuncios y/o objetos
-    flex-basis: calc (33,3% - 1rem);**/
-    /** flex: 0 0 calc(33.3% - 1rem);**/
-    border-width: 1px;
-    border-style: solid;
-    border-color: #ada9a9;
-    background-color: #ece9e9;
-    margin-bottom: 2rem;
-    /** se puede ingresar los parametros solo en border **/
-}
-@media (min-width: 768px) {
-    .anuncio {
-        flex: 0 0 calc(33.3% - 1rem);
-    }
-}
-.contenido-anuncio {
-    padding: 2rem;
-    /** aplica sobre todo el concepto del padding (cuadrado del div) te ahorras top left rifg y bottom **/   
-}
-.contenido-anuncio h3, 
-.contenido-anuncio p {
-    margin:0;
-}
-.precio{
- color: #71B100;
- font-weight: 700;
-}
-.iconos-caracteristicas{
-    list-style: none;  /**personaliza los dots de la lista **/
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    flex:1;
-    max-width: 500px;
-}
-.iconos-caracteristicas li{
-    /* flex:1;  */
-    display: flex;
-}
-.iconos-caracteristicas li img{
-    margin-right: 2rem;
-}
-.ver-todas{
-    display: flex; 
-    justify-content: flex-end;
-}
 
 /** Contacto Home **/
 .imagen-contacto {
@@ -584,77 +478,8 @@ flex-basis: 40%;
 .texto-entrada span{
     color: #d17f0c;
 }
-/**Testimoniales**/
-.testimonial{
-    background-color: #71B100;
-    font-size: 2.4rem;
-    padding: 2rem;
-    color: #ffffff;
-    border-radius: 2rem; /** le da como efecto a las puntas de circulo**/
-}
-.testimonial p{
-    text-align: right;
-}
-.testimonial blockquote::before{ /**crea antes de lo q se ingresa (no son parte de html)**/
-  content: '';
-  width: 4rem;
-  height: 4rem;
-  position: absolute; /** posiciona se usa poco **/
-  left: -2rem;   
-}
-.testimonial blockquote{
-    position: relative;
-    padding-left: 5rem;
-    font-weight: 300;
-}
-.site-footer{
-    background-color: #333333;
-    margin:0;
-}
-.contenedor-footer{
-    padding: 3rem 0;
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .contenedor-footer{
-        display : flex;
-        justify-content: space-between;
-    }
-}
-.site-footer nav{
-    display: none;
-}
-@media (min-width: 768px) {
-    .site-footer nav{
-    display: block;
-    }
-}
-.copyright{
-    margin: 0;
-    color: #ffffff;
-}
-/** Internas **/
-/*Nosotros*/
-@media (min-width: 768px) {
-    .contenido-nosotros{
-    display: grid; /**  FRAME GRID **/
-    grid-template-columns: repeat(2,1fr);
-    grid-column-end: 2rem;
-}
-}
-.texto-nosotros blockquote{
-    font-weight: 900;
-    font-size: 2rem;
-    margin: 0;
-    padding: 1rem 0 3rem 0;
-}
-/*anuncio*/
-.resumen-propiedad{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-}
+
 /*Contacto*/
 .contacto p {
      font-size: 1.5rem;
