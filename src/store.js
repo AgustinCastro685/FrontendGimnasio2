@@ -10,14 +10,19 @@ export default createStore({
     },
     actions: {
         getStatusAdmin({commit}, status){
-           
-            commit('setLoggedAdmin', status);
-                
+            commit('setLoggedAdmin', status);  
         },
         getStatusClient({commit}, status){
-           
-            commit('setLoggedClient', status);
-                
+            commit('setLoggedClient', status);   
+        },
+        putAlumnoAxios({commit},{id,alumno}) {
+            axios.put(url+id, alumno, {'content-type':'application/json'})
+            .then(res => {
+              let alumno = res.data
+              console.log(alumno)
+              commit('modificarAlumno',{id,alumno})
+            })
+            .catch(error => console.log('HTTP PUT ERROR', error))
         }
     },
     mutations: {
