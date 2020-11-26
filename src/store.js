@@ -16,7 +16,7 @@ export default createStore({
             commit('setLoggedClient', status);   
         },
         putAlumnoAxios({commit},{id,alumno}) {
-            axios.put(url+id, alumno, {'content-type':'application/json'})
+            this.axios.put(this.url+id, alumno, {'content-type':'application/json'})
             .then(res => {
               let alumno = res.data
               console.log(alumno)
