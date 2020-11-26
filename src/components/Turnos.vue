@@ -17,11 +17,11 @@
                             <td>{{clase.nombre_Clase}}</td>
                             <td>{{clase.dia}}</td>
                             <td>{{clase.hora}}</td>
-                            <router-link to="/confirmacion-turno">
+                            
                             <button 
-                            class="btn btn-success m-3">Anotarse!
+                            class="btn btn-success m-3" @click = "anotarse(clase.codClase)">Anotarse! 
                             </button> 
-                            </router-link>
+                            
           </tr>
         </tbody>
         <tbody v-else-if="clases.length == 0">
@@ -55,15 +55,31 @@ import Navbar from './Navbar.vue'
       }
     },
     methods: {
+      anotarse(id){
+        console.log("anotarse",id)
+        let usuarioConectado = JSON.parse(sessionStorage.getItem('client'))
+        console.log(usuarioConectado)
+        // hay que leer de vuex
+        //this.$store.state
+        this.putUsuarioEnClase(id,usuarioConectado)
+        
+      },
       getDatosFormAxios(){
-          
           this.axios(this.url)
           .then(resp => {
             console.log(resp.data)
             this.clases = resp.data
             })
           .catch(error => console.log('HTTP GET ERROR',error))
-      }
+      },
+      putUsuarioEnClase(id,usuarioConectado) {
+            this.axios.put(this.url+id, usuarioConectado, {'content-type':'application/json'})
+            .then(resp => {
+              console.log(resp.data)
+              
+            })
+            .catch(error => console.log('HTTP PUT ERROR', error))
+        }
     },
     computed: {
 

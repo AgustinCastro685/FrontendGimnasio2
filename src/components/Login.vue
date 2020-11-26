@@ -81,9 +81,11 @@
                 })
                 .then(res => {
                     if (res.data) {
-                        sessionStorage.setItem('client', res.data.token)
                         // cookie del usuario
-                        //this.$store.dispatch('getStatusClient', res.data.token);
+                        let userCompleto = res.data.user
+                        let userCompletoSTR = JSON.stringify(userCompleto) 
+                        sessionStorage.setItem('client',userCompletoSTR )
+                        //this.$store.dispatch('client', res.data);
                         this.$router.push('/home')
                     }
                 })

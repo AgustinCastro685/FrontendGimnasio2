@@ -4,7 +4,8 @@ export default createStore({
     state(){
         return {
             isLoggedAdmin: sessionStorage.getItem('admin') ? sessionStorage.getItem('admin') : false,
-            isLoggedClient: sessionStorage.getItem('client') ? sessionStorage.getItem('client') : false
+            isLoggedClient: sessionStorage.getItem('client') ? sessionStorage.getItem('client') : false,
+            alumnos:[]
         }
     },
     actions: {

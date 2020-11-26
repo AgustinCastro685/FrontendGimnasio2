@@ -5,6 +5,7 @@ import router from './router'
 import {VuelidatePlugin} from '@vuelidate/core'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import store from './store'
 
 // importo jquery y bootstrap
 import 'jquery'
@@ -17,4 +18,5 @@ createApp(App)
 .use(router)
 .use(VuelidatePlugin)
 .use(VueAxios,axios)
+.use(store)
 .mount('#app')
