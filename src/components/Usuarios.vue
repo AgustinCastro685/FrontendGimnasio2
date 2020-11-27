@@ -42,10 +42,10 @@
                                       type="number" 
                                       id="dni" 
                                       class="form-control"
-                                      v-model.number="$v.f.dni.$model"
+                                      v-model.number="v.f.dni.$model"
                                       >
-                                      <div v-if="$v.f.dni.$error && $v.f.dni.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.dni.required.$invalid">Campo requerido</div>
+                                      <div v-if="v.f.dni.$error && v.f.dni.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.dni.required.$invalid">Campo requerido</div>
                                       </div>
                                   </div>
 
@@ -56,10 +56,10 @@
                                       type="text" 
                                       id="email" 
                                       class="form-control"
-                                      v-model="$v.f.email.$model"
+                                      v-model="v.f.email.$model"
                                       >
-                                      <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.email.email.$invalid">- Debe ser un email válido</div>
+                                      <div v-if="v.f.email.$error && v.f.email.$dirty" class="alert alert-danger mt-1">
+                                      <div v-if="v.f.email.email.$invalid">- Debe ser un email válido</div>
                                         
                                           
                                           
@@ -73,11 +73,11 @@
                                       type="text" 
                                       id="nombre" 
                                       class="form-control"
-                                      v-model="$v.f.nombre.$model"
+                                      v-model="v.f.nombre.$model"
                                       >
-                                      <div v-if="$v.f.nombre.$error && $v.f.nombre.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.nombre.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
+                                      <div v-if="v.f.nombre.$error && v.f.nombre.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.nombre.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
                                       </div>
                                   </div>
 
@@ -88,11 +88,11 @@
                                       type="text" 
                                       id="apellido" 
                                       class="form-control"
-                                      v-model="$v.f.apellido.$model"
+                                      v-model="v.f.apellido.$model"
                                       >
-                                      <div v-if="$v.f.apellido.$error && $v.f.apellido.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.apellido.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                      <div v-if="v.f.apellido.$error && v.f.apellido.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.apellido.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -104,11 +104,11 @@
                                       type="password" 
                                       id="password" 
                                       class="form-control"
-                                      v-model="$v.f.password.$model"
+                                      v-model="v.f.password.$model"
                                       >
-                                      <div v-if="$v.f.password.$error && $v.f.password.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.password.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                      <div v-if="v.f.password.$error && v.f.password.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.password.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -118,15 +118,15 @@
                                   <div class="form-group">
                                     <input 
                                       type="submit"
-                                      :disabled="$v.$invalid"
+                                      :disabled="v.$invalid"
                                       class="btn btn-success mt-4"
                                       value="Cargar"
                                     >
                                     
                                   </div>
 
-                                </form>
-  </div>
+                      </form>
+                    </div>
                           
                   
                     
@@ -143,10 +143,10 @@
                                       type="number" 
                                       id="dni" 
                                       class="form-control"
-                                      v-model.number="$v.f.dni.$model"
+                                      v-model.number="v.f.dni.$model"
                                       >
-                                      <div v-if="$v.f.dni.$error && $v.f.dni.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.dni.required.$invalid">Campo requerido</div>
+                                      <div v-if="v.f.dni.$error && v.f.dni.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.dni.required.$invalid">Campo requerido</div>
                                       </div>
                                   </div>
 
@@ -157,10 +157,10 @@
                                       type="text" 
                                       id="email" 
                                       class="form-control"
-                                      v-model="$v.f.email.$model"
+                                      v-model="v.f.email.$model"
                                       >
-                                      <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.email.email.$invalid">- Debe ser un email válido</div>
+                                      <div v-if="v.f.email.$error && v.f.email.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.email.email.$invalid">- Debe ser un email válido</div>
                                         
                                           
                                           
@@ -174,11 +174,11 @@
                                       type="text" 
                                       id="nombre" 
                                       class="form-control"
-                                      v-model="$v.f.nombre.$model"
+                                      v-model="v.f.nombre.$model"
                                       >
-                                      <div v-if="$v.f.nombre.$error && $v.f.nombre.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.nombre.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
+                                      <div v-if="v.f.nombre.$error && v.f.nombre.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.nombre.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
                                       </div>
                                   </div>
 
@@ -189,11 +189,11 @@
                                       type="text" 
                                       id="apellido" 
                                       class="form-control"
-                                      v-model="$v.f.apellido.$model"
+                                      v-model="v.f.apellido.$model"
                                       >
-                                      <div v-if="$v.f.apellido.$error && $v.f.apellido.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.apellido.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                      <div v-if="v.f.apellido.$error && v.f.apellido.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.apellido.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -205,11 +205,11 @@
                                       type="password" 
                                       id="password" 
                                       class="form-control"
-                                      v-model="$v.f.password.$model"
+                                      v-model="v.f.password.$model"
                                       >
-                                      <div v-if="$v.f.password.$error && $v.f.password.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="$v.f.password.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="$v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
+                                      <div v-if="v.f.password.$error && v.f.password.$dirty" class="alert alert-danger mt-1">
+                                        <div v-if="v.f.password.required.$invalid">Este campo es requerido</div>
+                                        <div v-else-if="v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -219,7 +219,7 @@
                                   <div class="form-group">
                                     <input 
                                       type="submit"
-                                      :disabled="$v.$invalid"
+                                      :disabled="v.$invalid"
                                       class="btn btn-success mt-4"
                                       value="Cargar"
                                     >
@@ -245,18 +245,57 @@
 <script>
   import NavbarAdmin from './NavbarAdmin.vue'
   import {required ,minLength, maxLength,email} from '@vuelidate/validators'
+  import {useVuelidate} from '@vuelidate/core'
+
   export default  {
     name: 'src-components-usuarios',
     props: [],
+    
     components:{
       NavbarAdmin
     },
     mounted () {
       this.getDatosFormAxios()
     },
+    created (){
+      const rules = {
+          f: {
+                dni:{
+                  required,
+                  minLength: minLength(8),
+                  maxLength: maxLength(8)
+                },
+                email:{
+                  email,
+                  required
+                },
+                nombre:{
+                  required, 
+                  minLength: minLength(2)
+                },
+                apellido:{
+                  required,
+                  minLength: minLength(2)
+                },
+                  password:{
+                  required,
+                  minLength: minLength(2)
+                }
+              }
+      }
+      const f = this.f
+      this.v = useVuelidate(rules, {f})
+    },
     data () {
       return {
-        f: this.resetForm(),
+        f: {
+          dni:'',
+          email:'',
+          nombre:'',
+          apellido:'',
+          password:''
+        },
+        v : null,
         agregarUsuario: false,
         cambiarUsuario: false,
         eliminarUsuario: false,
@@ -264,31 +303,6 @@
         
         usuarios:[]
       }
-    },
-    validations : {
-      f: {
-        dni:{
-          required,
-          minLength: minLength(8),
-          maxLength: maxLength(8)
-        },
-        email:{
-          email,
-          required
-       },
-        nombre:{
-          required, 
-          minLength: minLength(2)
-        },
-        apellido:{
-          required,
-          minLength: minLength(2)
-        },
-         password:{
-          required,
-          minLength: minLength(2)
-        }
-      },
     }, 
     methods: {
       getDatosFormAxios(){
@@ -302,7 +316,10 @@
       sendDatosFormAxios(data) {
       this.axios
         .post(this.url, data, { "content-type": "application/json" })
-        .then(resp => console.log(resp.data))
+        .then(resp => {
+          console.log(resp.data)
+          this.getDatosFormAxios()
+          })
         .catch((error) => {
           console.log(error);
           this.error = true;
@@ -324,25 +341,23 @@
       
      
       enviar(){
-        this.$v.$touch()
-        if(!this.$v.$invalid){
+        this.v.$touch()
+        if(!this.v.$invalid){
             let form = this.f
           console.log(form)
           this.sendDatosFormAxios(form)
-          this.f=this.resetForm()
-          this.$v.$reset()
+          this.resetForm()
+          this.v.$reset()
           this.getDatosFormAxios()  
         }
         
       },
       resetForm(){
-        return{
-          dni:'',
-          email:'',
-          nombre:'',
-          apellido:'',
-          password:''
-        }
+          this.v.f.dni.$model = '',
+          this.v.f.email.$model = ''
+          this.v.f.nombre.$model = ''
+          this.v.f.apellido.$model = ''
+          this.v.f.password.$model = ''
       },
     },
     

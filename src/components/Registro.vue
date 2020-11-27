@@ -208,7 +208,6 @@ export default {
         required,
         minLength: minLength(3),
       },
-
       password: {
         required,
         minLength: minLength(8),
@@ -235,7 +234,6 @@ export default {
     },
     send() {
       this.$v.$touch();
-
       if (!this.$v.$invalid) {
         let form = {
           dni: this.$v.f.dni.$model,
@@ -264,7 +262,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-
 html{
     box-sizing: border-box; /** se matiene los pxs **/
     font-size: 62.5%; /** Reset para REMs - 62.5% = 10px de 16px **/
@@ -272,7 +269,6 @@ html{
 *, *:before, *:after{
     box-sizing: inherit;
 }
-
 body{
     font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
@@ -316,8 +312,6 @@ font-size: 2.6rem;
 .contenido-centrado{
     max-width:800px ;
 }
-
-
 /*Header*/
 .site-header{
     background-color: #333333;
@@ -328,7 +322,6 @@ background-position: center center;
 background-position: cover;
 height: 100vh;
 min-height: 60rem;
-
 }
 .contenido-header{
 height: 100%;
@@ -342,18 +335,15 @@ text-align: center;
         text-align: left;
     }
 }
-
 .contenido-header h1{
 color: white;
 padding-bottom: 2rem; /** espacio hacia dentro **/
 max-width: 60rem;
 line-height:2; /** interlineado de texto sobre 2 renglones **/
 }
-
 .barra {
    padding-top:3rem; 
 }
-
 @media (min-width: 768px) {
     .barra {
         display: flex;
@@ -361,7 +351,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
         align-items: center;
     }
 }
-
 /** Navegacion **/
 .navegacion a {
     color: white; /** RGB HSCLA HEXA  (F) **/
@@ -369,7 +358,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
     font-size: 2.2rem; /** = a 22px **/
     display: block;
 }
-
 @media (min-width: 768px) {
     .navegacion a {
         display: inline-block;
@@ -395,7 +383,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
 .navegacion:target{
     display: block;
 }
-
 .navegacion{
     display: none;
 }
@@ -404,7 +391,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
         display: block;
     }
 }
-
 /** Contacto Home **/
 .imagen-contacto {
     background-position: center center;
@@ -423,7 +409,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
 }
 /** Seccion Inferior **/
 @media (min-width:768px) {
-
 .seccion-inferior {
     display: flex;
     justify-content: space-between;
@@ -435,11 +420,9 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
     flex-basis: calc(40% - 2rem);
 }
 }
-
 .entrada-blog{
     margin-bottom: 2rem;
 }
-
 @media (min-width: 768) {
     .entrada-blog{
          display: flex;
@@ -451,7 +434,6 @@ line-height:2; /** interlineado de texto sobre 2 renglones **/
     margin-bottom: 0;
 }
 @media (min-width: 768px) {
-
    .entrada-blog .imagen{
 flex-basis: 40%;
 }
@@ -478,8 +460,6 @@ flex-basis: 40%;
 .texto-entrada span{
     color: #d17f0c;
 }
-
-
 /*Contacto*/
 .contacto p {
      font-size: 1.5rem;

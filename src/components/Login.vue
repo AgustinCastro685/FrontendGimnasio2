@@ -117,15 +117,11 @@
         }
         }, 
     computed: {
-
     }
 }
-
-
 </script>
 
 <style scoped lang="css">
   .src-components-login {
-
   }
 </style>
