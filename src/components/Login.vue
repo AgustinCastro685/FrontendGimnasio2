@@ -51,9 +51,9 @@
     name: 'src-components-login',
     props: [],
     mounted () {
-       //if (this.$store.state.isLoggedClient) {
-        //    this.$router.push('/home')
-        //}
+       if (this.$store.state.isLoggedClient) {
+            this.$router.push('/home')
+        }
         this.resetForm()
     },
     data () {
@@ -85,8 +85,9 @@
                         let userCompleto = res.data.user
                         let userCompletoSTR = JSON.stringify(userCompleto) 
                         sessionStorage.setItem('client',userCompletoSTR )
-                        //this.$store.dispatch('client', res.data);
+                        this.$store.dispatch('client', userCompletoSTR);
                         this.$router.push('/home')
+                        
                     }
                 })
                 .catch(error => {
