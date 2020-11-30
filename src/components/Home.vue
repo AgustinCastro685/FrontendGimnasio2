@@ -38,9 +38,9 @@
             </button>
           </router-link>
         </div>
+        
       </div>
     </div>
-    
   </body>
 </template>
 
@@ -65,7 +65,12 @@ export default {
       },
     };
   },
-  methods: {},
+  methods: {
+    //desloguearse(){
+      //sessionStorage.setItem('client',null)
+      //this.$router.push('/')
+    //}
+  },
   computed: {},
 };
 </script>

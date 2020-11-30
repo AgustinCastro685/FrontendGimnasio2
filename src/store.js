@@ -5,7 +5,7 @@ export default createStore({
         return {
             isLoggedAdmin: sessionStorage.getItem('admin') ? sessionStorage.getItem('admin') : false,
             isLoggedClient: sessionStorage.getItem('client') ? sessionStorage.getItem('client') : false,
-            
+            isNoLog: sessionStorage.getItem('noLog') ? sessionStorage.getItem('noLog') : false,
         }
     },
     actions: {
@@ -15,6 +15,9 @@ export default createStore({
         getStatusClient({commit}, status){
             commit('setLoggedClient', status);   
         },
+        getLogin({commit}, status){
+            commit('setNoLogin', status);   
+        },
         
     },
     mutations: {
@@ -23,6 +26,9 @@ export default createStore({
         },
         setLoggedClient(state,status){
             state.isLoggedClient = status;
+        },
+        setNoLogin(state,status){
+            state.isNoLog = status;
         }
     }
 })
