@@ -18,9 +18,14 @@
                             <td>{{clase.dia}}</td>
                             <td>{{clase.hora}}</td>
                             
+                            <router-link to=/confirmacion-turno>
                             <button 
                             class="btn btn-success m-3" @click = "anotarse(clase.codClase)">Anotarse! 
-                            </button> 
+                            </button>
+                            </router-link>
+                             
+              
+              
                             
           </tr>
         </tbody>
@@ -46,6 +51,9 @@ import Navbar from './Navbar.vue'
       Navbar
     },
     mounted () {
+      if (!this.$store.state.isLoggedClient){
+            this.$router.push('/')
+        }
       this.getDatosFormAxios()
     },
     data () {

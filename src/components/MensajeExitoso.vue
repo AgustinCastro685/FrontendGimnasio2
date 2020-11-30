@@ -17,7 +17,9 @@
     name: 'src-components-mensaje-exitoso',
     props: [],
     mounted () {
-
+      if (!this.$store.state.isLoggedClient){
+            this.$router.push('/')
+        }
     },
     data () {
       return {
