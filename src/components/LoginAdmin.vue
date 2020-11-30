@@ -48,9 +48,10 @@
     name: 'src-components-login',
     props: [],
     mounted () {
-       //if (this.$store.state.isLoggedAdmin) {
-         //   this.$router.push('/home-adm')
-       // }
+       if (this.$store.state.isLoggedAdmin) {
+            this.$router.push('/home-adm')
+        }
+        
         this.resetForm()
     },
     data () {
@@ -77,8 +78,8 @@
                 })
                 .then(res => {
                     if (res.data) {
-                        sessionStorage.setItem('admin', res.data.token)
-                        //this.$store.dispatch('getStatusAdmin', res.data.token);
+                        sessionStorage.setItem('admin', res.data)
+                        this.$store.dispatch('getStatusAdmin', res.data);
                         this.$router.push('/home-adm')
                     }
                 })

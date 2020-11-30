@@ -222,6 +222,9 @@
       NavbarAdmin
     },
     mounted () {
+      if (!this.$store.state.isLoggedAdmin){
+            this.$router.push('/login-adm')
+        }
       this.getDatosFormAxios()
     },
     created (){

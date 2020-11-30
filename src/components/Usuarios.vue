@@ -255,6 +255,9 @@
       NavbarAdmin
     },
     mounted () {
+      if (!this.$store.state.isLoggedAdmin){
+            this.$router.push('/login-adm')
+        }
       this.getDatosFormAxios()
     },
     created (){
@@ -300,7 +303,6 @@
         cambiarUsuario: false,
         eliminarUsuario: false,
         url: 'http://localhost:3000/api/usuarios/',
-        
         usuarios:[]
       }
     }, 

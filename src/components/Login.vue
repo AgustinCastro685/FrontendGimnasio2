@@ -54,6 +54,7 @@
        if (this.$store.state.isLoggedClient) {
             this.$router.push('/home')
         }
+        
         this.resetForm()
     },
     data () {

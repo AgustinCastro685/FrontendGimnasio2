@@ -52,7 +52,11 @@ export default {
   components: {
     Navbar,
   },
-  mounted() {},
+  mounted() {
+    if (!this.$store.state.isLoggedClient){
+            this.$router.push('/')
+        }
+  },
   data() {
     return {
       styleObject: {
