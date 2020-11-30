@@ -13,9 +13,9 @@ import NavbarAdmin from './NavbarAdmin.vue'
       NavbarAdmin
     },
     mounted () {
-      if (!this.$store.state.isLoggedAdmin){
-            this.$router.push('/login-adm')
-        }
+      //if (!this.$store.state.isLoggedAdmin){
+        //    this.$router.push('/login-adm')
+       // }
     },
     data () {
       return {

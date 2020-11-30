@@ -85,6 +85,7 @@
                     if (res.data) {
                         // cookie del usuario
                         let userCompleto = res.data.user
+                        
                         let userCompletoSTR = JSON.stringify(userCompleto)
                         sessionStorage.setItem('client', userCompletoSTR)
                         this.$store.dispatch('getStatusClient', userCompletoSTR);

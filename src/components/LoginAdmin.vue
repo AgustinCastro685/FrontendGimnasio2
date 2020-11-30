@@ -12,11 +12,11 @@
                         Los datos ingresados son incorrectos.
                     </div>
                     <div class="form-group col-12">
-                        <label for="username">Correo electrónico</label>
-                        <input type="text" id="username" class="form-control" v-model="$v.f.username.$model">
-                        <div v-if="$v.f.username.$error && $v.f.username.$dirty" class="alert alert-danger mt-1">
-                            <div v-if="$v.f.username.required.$invalid">- Este campo es requerido</div>
-                            <div v-if="$v.f.username.email.$invalid">- Debe ser un email válido</div>
+                        <label for="email">Correo electrónico</label>
+                        <input type="text" id="email" class="form-control" v-model="$v.f.email.$model">
+                        <div v-if="$v.f.email.$error && $v.f.email.$dirty" class="alert alert-danger mt-1">
+                            <div v-if="$v.f.email.required.$invalid">- Este campo es requerido</div>
+                            <div v-if="$v.f.email.email.$invalid">- Debe ser un email válido</div>
                         </div>
                     </div>
                     <div class="form-group  col-12">
@@ -62,7 +62,7 @@
     },
     validations: {
         f: {
-            username: {
+            email: {
                 required,
                 email
             },
@@ -78,8 +78,17 @@
                 })
                 .then(res => {
                     if (res.data) {
-                        sessionStorage.setItem('admin', res.data)
-                        this.$store.dispatch('getStatusAdmin', res.data);
+                        //let userCompleto = res.data.user
+                        //let userCompletoSTR = JSON.stringify(userCompleto)
+                        //sessionStorage.setItem('admin', res.data.username)
+                        //this.$store.dispatch('getStatusAdmin', res.data.username);
+                        //this.$router.push('/home-adm')
+
+
+                        let userCompleto = res.data.user
+                        let userCompletoSTR = JSON.stringify(userCompleto)
+                        sessionStorage.setItem('admin', userCompletoSTR)
+                        this.$store.dispatch('getStatusAdmin', userCompletoSTR);
                         this.$router.push('/home-adm')
                     }
                 })
@@ -96,7 +105,7 @@
             this.$v.$touch()
             if (!this.$v.$invalid) {
                 let form = {
-                    username: this.$v.f.username.$model,
+                    email: this.$v.f.email.$model,
                     password: this.$v.f.password.$model,
                 }
                 this.loading = true
@@ -105,7 +114,7 @@
         },
         resetForm() {
             return {
-                username: '',
+                email: '',
                 password: ''
             }
         }
