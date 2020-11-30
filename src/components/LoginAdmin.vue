@@ -57,7 +57,7 @@
     data () {
       return {
         f: this.resetForm(),
-        url: 'http://localhost:3000/api/usuarios/',
+        url: 'http://localhost:3000/api/usuarios/login',
       }
     },
     validations: {
