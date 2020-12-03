@@ -11,6 +11,8 @@ import LoginAdmin from '../components/LoginAdmin.vue'
 import Registro from '../components/Registro.vue'
 import RegistroExitoso from '../components/RegistroExitoso.vue'
 import MensajeExitoso from '../components/MensajeExitoso.vue'
+import Admin from '../components/Admin.vue'
+
 
 const routes = [
     {path : '/home',name: 'Home',component: Home},
@@ -23,6 +25,8 @@ const routes = [
     {path : '/usuarios',name: 'Usuarios',component: Usuarios},
     {path : '/turnos',name: 'Turnos',component: Turnos},
     {path : '/confirmacion-turno',name: 'ConfirmacionTurno',component: MensajeExitoso},
+    {path : '/admin',name: 'Admin',component: Admin},
+
     {path : '/:catchAll(.*)',name: 'NoFound',component: Error}
 ]   
 
