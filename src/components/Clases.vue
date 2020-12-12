@@ -121,7 +121,7 @@
                     </button>
 
                     <div v-if="cambiarClase" class="alert alert-warning">
-                      <form novalidate autocomplete="off" @submit.prevent="enviar()">
+                      <form novalidate autocomplete="off" @submit.prevent="enviarPut()">
       
                                   <div class="form-group">
                                     <label for="codClase">Codigo Clase</label>
@@ -295,6 +295,13 @@
         .catch(error => console.log('HTTP POST ERROR' , error))
         
       },
+      putAlumnoAxios(datos) {
+        console.log('put')
+        
+        const codClase = datos.codClase;
+        
+        this.axios.put(this.url + codClase , datos );
+      },
           
      
       enviar(){
@@ -314,6 +321,17 @@
         this.v.f.nombre_Clase.$model='',
         this.v.f.dia.$model='',
         this.v.f.hora.$model=''
+      },
+      enviarPut(){
+        this.v.$touch()
+        if(!this.v.$invalid){
+            let form = this.f
+          console.log(form)
+          this.putAlumnoAxios(form)
+          this.resetForm()
+          this.v.$reset()
+          this.getDatosFormAxios()  
+        }
       },
     },
     
