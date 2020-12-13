@@ -27,7 +27,7 @@
 
     <div class="hero">
       <div class="contenedor-hero">
-        <h1>Bienvenido {{obtenerNombre()}}</h1>
+        <h2>Bienvenido {{obtenerNombre()}}</h2>
         <h1>One More Gym</h1>
         
         <p><i class="fas fa-map-marker-alt"></i>CABA, Argentina</p>
