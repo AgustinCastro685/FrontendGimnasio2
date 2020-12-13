@@ -57,7 +57,7 @@
 
                                 </div>
 
-                                  <router-link to='/confirmacion-turno'>
+                                  
                                   <div class="form-group">
                                     <input 
                                       type="submit"
@@ -66,7 +66,7 @@
                                       value="Reservar"
                                     >
                                   </div>
-                                  </router-link>
+                                  
 
                       </form>
                     </div>
