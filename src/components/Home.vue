@@ -27,6 +27,7 @@
 
     <div class="hero">
       <div class="contenedor-hero">
+        <h1>Bienvenido {{obtenerNombre()}}</h1>
         <h1>One More Gym</h1>
         
         <p><i class="fas fa-map-marker-alt"></i>CABA, Argentina</p>
@@ -70,6 +71,10 @@ export default {
       //sessionStorage.setItem('client',null)
       //this.$router.push('/')
     //}
+    obtenerNombre(){
+      let usuarioConectado = JSON.parse(sessionStorage.getItem('client'))
+      return usuarioConectado.nombre
+    }
   },
   computed: {},
 };
