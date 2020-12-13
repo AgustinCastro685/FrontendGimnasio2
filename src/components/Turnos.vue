@@ -57,27 +57,21 @@
 
                                 </div>
 
-                                  
+                                  <router-link to='/confirmacion-turno'>
                                   <div class="form-group">
                                     <input 
                                       type="submit"
                                       :disabled="v.$invalid"
                                       class="btn btn-success mt-4"
-                                      value="Cargar"
+                                      value="Reservar"
                                     >
-                                    
                                   </div>
+                                  </router-link>
 
                       </form>
                     </div>
 
-        <tbody v-else-if="clases.length == 0">
-          <tr>
-            <td colspan="5">
-              <div class="alert alert-danger">No hay clases cargadas</div>
-            </td>
-          </tr>
-        </tbody>
+      
 
       </table>
     </div>  
