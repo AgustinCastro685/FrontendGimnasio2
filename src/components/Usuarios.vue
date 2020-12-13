@@ -134,8 +134,9 @@
                      <button class="btn btn-warning m-3" @click="cambiarUsuario = !cambiarUsuario">
                       {{ cambiarUsuario ? "No Cambiar" : "Cambiar" }}
                     </button>
+
                     <div v-if="cambiarUsuario" class="alert alert-warning">
-                      <form novalidate autocomplete="off" @submit.prevent="enviar()">
+                      <form novalidate autocomplete="off" @submit.prevent="enviarPut()">
       
                                   <div class="form-group">
                                     <label for="dni">DNI</label>
@@ -160,8 +161,8 @@
                                       v-model="v.f.email.$model"
                                       >
                                       <div v-if="v.f.email.$error && v.f.email.$dirty" class="alert alert-danger mt-1">
-                                        <div v-if="v.f.email.email.$invalid">- Debe ser un email válido</div>
-                                        
+                                        <div v-if="v.f.email.required.invalid">Email requerido</div>
+                                        <div v-else-if="v.f.email.email.$invalid">Introducir mail valido</div>
                                           
                                           
                                       </div>
@@ -178,13 +179,13 @@
                                       >
                                       <div v-if="v.f.nombre.$error && v.f.nombre.$dirty" class="alert alert-danger mt-1">
                                         <div v-if="v.f.nombre.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="v.f.nombre.minLength.$invalid">El nombre debe tener al menos 2 caracteres</div>
+                                        <div v-else-if="v.f.nombre.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                       </div>
                                   </div>
 
 
                                 <div class="form-group">
-                                    <label for="apellido">Apellido</label>
+                                    <label for="apellido">apellido</label>
                                     <input 
                                       type="text" 
                                       id="apellido" 
@@ -193,23 +194,20 @@
                                       >
                                       <div v-if="v.f.apellido.$error && v.f.apellido.$dirty" class="alert alert-danger mt-1">
                                         <div v-if="v.f.apellido.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="v.f.apellido.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
                                   </div>
-
-                                  <div class="form-group">
-                                    <label for="apellido">Password</label>
+                                   <div class="form-group">
+                                    <label for="password">password</label>
                                     <input 
-                                      type="password" 
+                                      type="text" 
                                       id="password" 
                                       class="form-control"
                                       v-model="v.f.password.$model"
                                       >
                                       <div v-if="v.f.password.$error && v.f.password.$dirty" class="alert alert-danger mt-1">
                                         <div v-if="v.f.password.required.$invalid">Este campo es requerido</div>
-                                        <div v-else-if="v.f.password.minLength.$invalid">El nombre debe tener al menos 3 caracteres</div>
                                         
                                       </div>
                                     
@@ -227,7 +225,7 @@
                                   </div>
 
                                 </form>
-  </div>
+                          </div>
                     
                     <!-- Boton   Borrar-->
                     <button class="btn btn-danger m-3" @click="eliminarUsuario = !eliminarUsuario">
@@ -339,6 +337,13 @@
           })
           .catch(error => console.log('HTTP DELETE ERROR', error))
       },
+      putUsuarioAxios(datos) {
+        console.log('put')
+        
+        const dni = datos.dni;
+        
+        this.axios.put(this.url + dni , datos );
+      },
       
       
      
@@ -354,12 +359,29 @@
         }
         
       },
+      enviarPut(){
+        this.v.$touch()
+        if(!this.v.$invalid){
+            let form = this.f
+          console.log(form)
+          this.putUsuarioAxios(form)
+          this.resetForm()
+          this.v.$reset()
+          this.getDatosFormAxios()  
+        }
+      },
       resetForm(){
           this.v.f.dni.$model = '',
           this.v.f.email.$model = ''
           this.v.f.nombre.$model = ''
           this.v.f.apellido.$model = ''
           this.v.f.password.$model = ''
+      },
+      resetFormUpdate(){
+          this.v.f.dni.$model = '',
+          this.v.f.email.$model = ''
+          this.v.f.nombre.$model = ''
+          this.v.f.apellido.$model = ''
       },
     },
     

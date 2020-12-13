@@ -325,7 +325,7 @@
       enviarPut(){
         this.v.$touch()
         if(!this.v.$invalid){
-            let form = this.f
+          let form = this.f
           console.log(form)
           this.putAlumnoAxios(form)
           this.resetForm()
